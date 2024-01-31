@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<body>
+    <h1>Login Page</h1>
+      
+    <form method="POST" action="">
+        {% csrf_token %}
+        <label for="username">Username</label>></ion-icon>
+        <input type="text" name="username" id="" required>
+        <label for="password">Password</label>
+        <label for="submit">Log In</label>
+    </form>
+
+    <a href="{{ url_for('register') }}">Don't have an account? Sign Up</a>
+    <script>
+        const inputUsername = document.querySelector('input[name="username"]');
+        const inputPassword = document.querySelector('input[name="password"]');
+        
+        inputUsername.addEventListener('input', () => {
+            toggleLabelVisibility(inputUsername);
+        });
+
+        inputPassword.addEventListener('input', () => {
+            toggleLabelVisibility(inputPassword);
+        });
+
+        function toggleLabelVisibility(inputElement) {
+            const labelElement = inputElement.nextElementSibling;
+            labelElement.style.opacity = inputElement.value.length > 0 ? 0 : 1;
+        }
+
+</script>
+</body>
+</html>
